@@ -153,7 +153,7 @@ function MobileMenuAside({header, publicStoreDomain}) {
   return (
     header.menu &&
     header.shop.primaryDomain?.url && (
-      <Aside type="mobile" heading="MENU">
+      <Aside className="test-2" type="mobile" heading="MENU">
         <HeaderMenu
           menu={header.menu}
           viewport="mobile"

@@ -9,10 +9,10 @@ import '../styles/mega-menu.css';
 /**
  * @param {HeaderProps}
  */
-export function Header({header, isLoggedIn, cart, publicStoreDomain}) {
+export function Mobileburgermenu({header, isLoggedIn, cart, publicStoreDomain}) {
   const {shop, menu, metaobjects} = header;
   return (
-    <header className="header border-b-[0.5px] border-b-[rgba(223,223,223,1)] test-1">
+    <header className="header border-b-[0.5px] border-b-[rgba(223,223,223,1)]">
       <div className="max-w-[1280px] mx-auto w-full flex h-[inherit] items-center">
         <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
           <strong></strong>
@@ -126,7 +126,7 @@ export function HeaderMenu({
   }
 
   return (
-    <nav className={`relative z-50 w-full h-[inherit] ${className}`} role="navigation">
+    <nav className="relative z-50 w-full h-[inherit]" role="navigation">
       {viewport === 'mobile' && (
         <NavLink
           end

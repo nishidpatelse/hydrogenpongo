@@ -74,10 +74,29 @@ export function Footer({ footer: footerPromise, header, publicStoreDomain }) {
         {(footer) => (
           <footer className="footer flex flex-col">
             {/* Static Logo Above the Footer Menu */}
-            <div className="max-w-[1216px] w-full flex justify-between my-[80px] mb-[23px] mx-auto">
+            <div className="max-w-[1216px] w-full flex justify-between md:my-[80px] mb-[23px] mx-auto flex-col-reverse  md:flex-row p-[20px] gap-[40px] md:gap-[0px]">
               <div className='flex flex-col gap-[10px]'>
                 <img src={footer_logo} alt="Waggle Logo" className='w-[204px]' />
                 <p className='!text-[#FEFDFDCC] md:text-[16px] text-[14px] !mb-[10px]'>{topLeftText}</p>
+                {(footer?.menu || FALLBACK_FOOTER_MENU).items.map((item) => {
+                  if (item.title !== 'Contact Us') return null;
+
+                  return (
+                    <div key={item.title}>
+                      {item.items.map((child, index) => {
+                        console.log(child.title);
+                        return (
+                          <p
+                            key={index}
+                            className='!text-[#FEFDFDCC] md:text-[16px] text-[14px] !mb-[10px] contactUsHideFromDesktop md:hidden'
+                          >
+                            {child.title}
+                          </p>
+                        );
+                      })}
+                    </div>
+                  );
+                })}
                 <div className="flex space-x-4 gap-[13px]">
                   <div className="group m-0">
                     <a href={instagramLink}>
@@ -106,7 +125,7 @@ export function Footer({ footer: footerPromise, header, publicStoreDomain }) {
                 </div>
               </div>
 
-              <div className="w-[33%] flex flex-col gap-[4px] mr-[27px]">
+              <div className="md:w-[33%] flex flex-col gap-[4px] md:mr-[27px]">
                 <div className='flex flex-col gap-[2px] mb-[10px] w-[75%]'>
                   <span className='!text-[#ffffff] md:text-[23px] text-[23px]'>{topRightText}</span>
                   <p className='!text-[#FEFDFDCC] md:text-[18px] text-[16px] mb-4'>
@@ -147,7 +166,9 @@ export function Footer({ footer: footerPromise, header, publicStoreDomain }) {
                   };
 
                 return (
-                  <div key={item.id} className="footer-link-group flex flex-col gap-[26px] !m-0 w-full !mb-auto">
+                  <div key={item.id} className={`footer-link-group flex flex-col gap-[26px] !m-0 w-full !mb-auto ${
+                    item.title === 'Contact Us' ? 'hidden md:block' : ''
+                  }`}>
                     <LinkComponent {...linkProps} className="md:text-[18px] text-[16px] font-bold">{item.title}</LinkComponent>
 
                     {item.items && item.items.length > 0 && (

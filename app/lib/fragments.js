@@ -215,6 +215,21 @@ export const HEADER_QUERY = `#graphql
     menu(handle: $headerMenuHandle) {
       ...Menu
     }
+    metaobjects(type: "mega_menu_content", first: 50) {
+      nodes {
+        fields {
+          key
+          value
+          reference {
+            ...on MediaImage {
+              image {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
   }
   ${MENU_FRAGMENT}
 `;

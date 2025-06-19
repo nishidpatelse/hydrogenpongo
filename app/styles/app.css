@@ -926,3 +926,6 @@ button.reset:hover:not(:has(> *)) {
     padding: 20px;
   }
 }
+/* header {
+  backdrop-filter: blur(19.25px) !important;
+} */

@@ -173,7 +173,7 @@ export default function PotionControl(ProductData) {
 
   return (
     <div className="mx-auto px-4 py-4 md:px-[112px] md:py-[56px]">
-      <div className="block md:hidden mb-4">
+      {/* <div className="block md:hidden mb-4">
         <header className="flex items-center justify-between bg-white mx-auto px-4 py-3 h-13 rounded-3xl shadow-sm">
           <div className="flex items-center">
             <img src={waggleLogo} alt="Waggle Logo" loading="lazy" />
@@ -185,7 +185,7 @@ export default function PotionControl(ProductData) {
             <img src={menuIcon} alt="Menu" loading="lazy" />
           </div>
         </header>
-      </div>
+      </div> */}
 
       {/* <div className="block md:hidden">
         <div className="mb-4">
