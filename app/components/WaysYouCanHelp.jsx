@@ -54,9 +54,9 @@ export default function WaysYouCanHelp() {
 
   return (
     <div className="w-full max-w-[1440px] mx-auto md:py-14 md:px-4 px-[20px] py-[37px]">
-      <h1 className="text-center text-dark-gray font-medium text-[28.48px] md:text-[47px] leading-[100%] md:leading-[124%] md:tracking-[0] tracking-[-0.36px] lexend md:pb-7 pb-[20px]">
+      <h2 className="text-center text-dark-gray font-medium text-[28.48px] md:text-[47px] leading-[100%] md:leading-[124%] md:tracking-[0] tracking-[-0.36px] lexend md:pb-7 pb-[20px]">
         {mainTitle}
-      </h1>
+      </h2>
       <div className="flex flex-wrap gap-[14px] md:gap-[40px] w-full mx-auto max-[768px]:flex-col min-[769px]:justify-center">
         {volunteerRoles.map(
           ({ title, description, image, maxWidthClass, boxClass, imageMarginTop }, index) => (

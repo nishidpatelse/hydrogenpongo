@@ -13,7 +13,6 @@ import bowlShadowImg from "../assets/bowlShadowImg.webp";
 import sideNotificationImg from "../assets/sideNotificationImg.webp";
 
 
-
 const SmartPetBowlShowcase = (ProductData) => {
   const metaobjectData = ProductData?.ProductData?.effortlessPetNeed?.effortlessPetNeeds?.metaobjects?.edges[0]?.node?.fields  || {};
   console.log(metaobjectData)
@@ -101,61 +100,65 @@ const SmartPetBowlShowcase = (ProductData) => {
     },
   };
   return (
-    <div className="px-4 py-8 md:px-[215px] md:py-[56px]">
+    <div className="py-[48px] px-[20px] md:px-[215px] md:py-[56px]">
       <div className="text-center mb-8 md:mb-[32px]">
-        <h1 className="lexend medium text-2xl md:text-[36px] leading-[100%] mt-[9px] text-dark-gray px-4 md:px-0">
+        <span className="lexend medium text-[20px] leading-[1.44] md:text-[36px] md:leading-[100%] text-dark-gray px-4 ">
           {textContent.title}
-        </h1>
+        </span>
       </div>
-      <div className="hidden md:flex gap-[25px]">
-        <div className="flex flex-col gap-[25px] h-full max-w-[246px]">
-          <div className="primary-gradient white-text-element rounded-[21px] flex flex-col max-w-[233px]">
-            <h2 className="max-w-[13rem] lato pt-[28px] px-[28px] font-semibold text-[28px] text-left white-text-element leading-tight">
+      <div className="flex flex-col md:flex-row gap-[16px] md:gap-[25px] justify-center">
+        {/* left paert............. */}
+        <div className="flex flex-row md:flex-col gap-[16px] md:gap-[25px] h-full max-w-full md:max-w-[246px] order-2 md:order-none">
+          <div className="primary-gradient white-text-element rounded-[15px] md:rounded-[21px] flex flex-col w-1/2 md:w-full max-w-full md:max-w-[233px]">
+            <h2 className="max-w-[13rem] lato pt-[16px] md:pt-[28px] px-[16px] md:px-[28px] font-semibold text-[18px] md:text-[28px] text-left white-text-element leading-tight">
               {textContent.leftColumn.card1.heading}
             </h2>
-            <div className="pt-[17px]">
+            <div className="pt-[10px] md:pt-[17px]">
               <img
                 src={wifiSmartBowlImg}
                 alt={textContent.leftColumn.card1.imageAlt}
-                className="rounded-[21px] max-w-[233px] w-full"
+                className="rounded-[15px] md:rounded-[21px] max-w-full md:max-w-[233px] w-full"
                 loading="lazy"
               />
             </div>
           </div>
-          <div className="bg-[#d1681d4b] rounded-[21px] max-w-[233px] w-full overflow-hidden">
-            <img
-              src={portimage}
-              alt={textContent.leftColumn.card2.imageAlt}
-              className="object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="bg-[#73a0b229] rounded-[21px] overflow-hidden max-w-[233px] h-[145px]">
-            <img
-              src={bowlBaseImg}
-              alt={textContent.leftColumn.card3.imageAlt}
-              className="h-full object-contain"
-              loading="lazy"
-            />
+          <div className="flex flex-col gap-[16px] md:gap-[25px] w-1/2 md:w-full">
+            <div className="bg-[#d1681d4b] rounded-[15px] md:rounded-[21px] max-w-full md:max-w-[233px] w-full overflow-hidden">
+              <img
+                src={portimage}
+                alt={textContent.leftColumn.card2.imageAlt}
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="bg-[#73a0b229] rounded-[15px] md:rounded-[21px] overflow-hidden max-w-full md:max-w-[233px] h-[95px] md:h-[145px]">
+              <img
+                src={bowlBaseImg}
+                alt={textContent.leftColumn.card3.imageAlt}
+                className="h-full object-contain w-full"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
-        <div className="flex flex-col gap-[24px] h-full relative ">
-          <div className="warm-radial-gradient max-w-[494.33px] max-h-[352.08px] pt-[22px] px-[37px] pb-[197px] white-text-element rounded-[20px] flex flex-col text-center">
+        {/* mid part................ */}
+        <div className="flex flex-col gap-[16px] md:gap-[24px] h-full relative order-1 md:order-none">
+          <div className="warm-radial-gradient md:max-w-[494.33px] h-[227px] md:h-[352.08px] pt-[15px] md:pt-[22px] px-[20px] md:px-[37px] pb-[50px] md:pb-[197px] white-text-element rounded-[20px] flex flex-col text-center md:mx-0">
             <img
               src={aiTrackingIcon}
               alt={textContent.middleColumn.topCard.iconAlt}
-              className=" mx-auto"
+              className="mx-auto w-12 h-12 md:w-auto md:h-auto"
               loading="lazy"
             />
-            <h2 className="lexend font-normal text-[28px] leading-[112%]  white-text-element mt-[14px]">
+            <h2 className="lexend font-[400] md:font-normal text-[18px] md:text-[28px] leading-[100%] md:leading-[112%] white-text-element mt-[9px] md:mt-[14px]">
               {textContent.middleColumn.topCard.heading}
             </h2>
-            <p className=" white-text-element lexend font-normal text-[28px]">
+            <p className="white-text-element lexend font-normal text-[20px] md:text-[28px]">
               {textContent.middleColumn.topCard.paragraph}
             </p>
           </div>
-          <div className="flex gap-[24px]">
-            <div className="rounded-[21px] overflow-hidden w-[234.55px] max-h-[370px]">
+          <div className="flex gap-[16px] md:gap-[24px]">
+            <div className="rounded-[15px] md:rounded-[21px] overflow-hidden w-1/2 md:w-[234.55px] max-h-[237px] md:max-h-[370px]">
               <img
                 src={dogWithBowlImg}
                 alt={textContent.middleColumn.bottomSection.dogImageAlt}
@@ -163,214 +166,84 @@ const SmartPetBowlShowcase = (ProductData) => {
                 loading="lazy"
               />
             </div>
-            <div className="primary-gradient white-text-element rounded-[20px] flex-1 flex flex-col items-start justify-center text-left pl-[28px] pr-[46px] pt-[165px] pb-[24px] w-full max-h-[370px] max-w-[234.55px]">
+            <div className="primary-gradient white-text-element rounded-[20px] flex-1 flex flex-col items-start justify-center text-left pl-[18px] md:pl-[28px] pr-[18px] md:pr-[46px] pt-[115px] md:pt-[165px] pb-[16px] md:pb-[24px] w-1/2 md:w-full max-h-[237px] md:max-h-[370px] max-w-full md:max-w-[234.55px]">
               <img
                 src={scheduleIcon}
                 alt={textContent.middleColumn.bottomSection.scheduleCard.iconAlt}
-                className="mb-[27px]"
+                className="mb-[15px] md:mb-[27px] w-8 h-8 md:w-auto md:h-auto"
                 loading="lazy"
               />
-              <h2 className="lato font-semibold text-[28px] leading-[124%] tracking-[-0.01em] white-text-element ">
+              <h2 className="lato font-[600] md:font-semibold text-[18px] md:text-[28px] leading-[100%] md:leading-[124%] tracking-[-1%] md:tracking-[-0.01em] white-text-element ">
                 {textContent.middleColumn.bottomSection.scheduleCard.heading}
               </h2>
             </div>
           </div>
-          <div className="absolute top-[49%] left-[50%]">
+          <div className="absolute top-[24%] top-[49%] left-[50%]">
             <div className="relative">
               <img
                 src={bowlShadowImg}
                 alt={textContent.middleColumn.centerImage.shadowAlt}
-                className="absolute max-w-[421px] max-h-[396.75px] object-contain transform -translate-x-1/2 -translate-y-1/2"
+                className="absolute md:max-w-[421px] md:max-h-[396.75px] max-w-[250.52px] max-h-[220px]
+                 object-contain transform -translate-x-1/2 -translate-y-1/2"
                 loading="lazy"
               />
               <img
                 src={bowl450gImg}
                 alt={textContent.middleColumn.centerImage.bowlAlt}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[421px] max-h-[396.75px] object-contain"
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  md:max-w-[421px] md:max-h-[396.75px] max-w-[250.52px] max-h-[254.74px]
+                 object-contain"
                 loading="lazy"
               />
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-[25px] ">
-          <div className="primary-gradient white-text-element rounded-[20px] flex flex-col items-center justify-center text-center w-full h-[295px] max-w-[232.94px] pl-[14px] pr-[14px] pt-[46px] pb-[88px] relative">
+        {/* right part................. */}
+        <div className="flex flex-row md:flex-col gap-[16px] md:gap-[25px] order-3 md:order-none">
+          <div className="flex flex-col gap-[16px] md:gap-[25px] w-1/2 md:w-full">
+            <div className="brown-linear-radial-gradient white-text-element rounded-[15px] md:rounded-[21px] w-full max-w-full md:max-w-[232.94px] h-[147px] md:h-[272px] flex flex-col pt-[13px] md:pt-[24px] pl-[15px] md:pl-[28px] pr-[15px] md:pr-[28px] pb-[15px] md:pb-[28px]">
+              <img
+                src={petSafeIcon}
+                alt={textContent.rightColumn.middleCard.iconAlt}
+                className="mb-[20px] md:mb-[109px] w-8 h-8 md:w-[48px] md:h-[48px]"
+              />
+              <h2 className="lato font-[600] md:font-semibold text-[16px] md:text-[28px] leading-[100%] md:leading-[100%] tracking-[-1%] md:tracking-[-0.01em] white-text-element ">
+                {textContent.rightColumn.middleCard.heading}
+              </h2>
+            </div>
+            <div className="primary-gradient w-full max-w-full md:max-w-[232.94px] white-text-element rounded-[15px] md:rounded-[21px] h-[70px] md:h-[127px] flex md:pt-[45px] pl-[9px] md:pl-[30px] pr-[9px] md:pr-[30px] py-[21px] md:pb-[42px] gap-[12px] md:gap-[12px] items-center md:items-start">
+              <img
+                src={alertsIcon}
+                alt={textContent.rightColumn.bottomCard.iconAlt}
+                className="w-6 h-6 md:w-[40px] md:h-[40px]"
+                loading="lazy"
+              />
+              <p className="lato font-[500] md:font-medium text-[12px] md:text-[18px] leading-[100%] md:leading-[100%] tracking-[0%] md:tracking-normal white-text-element">
+                {textContent.rightColumn.bottomCard.paragraph}
+              </p>
+            </div>
+          </div>
+          <div className="primary-gradient white-text-element rounded-[20px] flex flex-col items-center justify-center text-center w-1/2 md:w-full h-[230px] md:h-[295px] max-w-full md:max-w-[232.94px] pl-[15px] md:pl-[14px] pr-[15px] md:pr-[14px] pt-[20px] md:pt-[46px] pb-[20px] md:pb-[88px] relative">
             <img
               src={sideNotificationImg}
               alt={textContent.rightColumn.topCard.leftNotificationAlt}
-              className="absolute left-3  transform -translate-y-1/2  top-[59%]"
+              className="absolute left-2 md:left-3  transform -translate-y-1/2  top-[60%] md:top-[59%]"
               loading="lazy"
             />
             <img
               src={sideNotificationImg}
               alt={textContent.rightColumn.topCard.rightNotificationAlt}
-              className="absolute right-3 top-[59%] transform -translate-y-1/2"
+              className="absolute right-2 md:right-3 top-[60%] md:top-[59%] transform -translate-y-1/2"
               loading="lazy"
             />
             <img
               src={weightSensorIcon}
               alt={textContent.rightColumn.topCard.centerImageAlt}
+              className="w-10 h-10 md:w-auto md:h-auto"
               loading="lazy"
             />
-            <p className="lato pt-[40px] font-bold text-[18px] leading-[100%] tracking-[0] white-text-element">
+            <p className="lato pt-[16px] md:pt-[40px] font-bold text-[14px] md:text-[18px] leading-[100%] md:leading-[100%] tracking-[0] white-text-element">
               {textContent.rightColumn.topCard.paragraph}
             </p>
-          </div>
-          <div className="brown-linear-radial-gradient white-text-element rounded-[21px] w-full max-w-[232.94px] h-[272px] flex flex-col pt-[24px] pl-[28px] pr-[28px] pb-[28px]">
-            <img
-              src={petSafeIcon}
-              alt={textContent.rightColumn.middleCard.iconAlt}
-              className="mb-[109px] w-[48px] h-[48px]"
-            />
-            <h2 className="lato font-semibold text-[28px] leading-[100%] tracking-[-0.01em] white-text-element ">
-              {textContent.rightColumn.middleCard.heading}
-            </h2>
-          </div>
-          <div className="primary-gradient w-full max-w-[232.94px] white-text-element rounded-[21px] h-[127px] flex pt-[45px] pl-[30px] pr-[30px] pb-[42px] gap-[12px]">
-            <img
-              src={alertsIcon}
-              alt={textContent.rightColumn.bottomCard.iconAlt}
-              className="w-[40px] h-[40px]"
-              loading="lazy"
-            />
-            <p className="lato font-medium text-[18px] leading-[100%] tracking-normal white-text-element">
-              {textContent.rightColumn.bottomCard.paragraph}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="md:hidden flex flex-col gap-6 relative">
-        <div className="flex flex-col gap-6">
-          <div className="warm-radial-gradient pt-6  pb-8 w-[320px] h-[227px] white-text-element rounded-[20px] flex flex-col text-center mx-auto">
-            <img
-              src={aiTrackingIcon}
-              alt={textContent.middleColumn.topCard.iconAlt}
-              className="mx-auto w-12 h-12"
-              loading="lazy"
-            />
-            <h2 className="lexend font-normal text-xl leading-[112%] white-text-element mt-4">
-              {textContent.middleColumn.topCard.heading}
-            </h2>
-            <p className="white-text-element lexend font-normal text-xl">
-              {textContent.middleColumn.topCard.paragraph}
-            </p>
-          </div>
-          <div className="flex gap-4 justify-center">
-            <div className="rounded-[15px] overflow-hidden">
-              <img
-                src={dogWithBowlImg}
-                alt={textContent.middleColumn.bottomSection.dogImageAlt}
-                className="w-full max-w-[152px] h-[237px] object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="w-[152px] h-[237px] primary-gradient white-text-element rounded-[20px] flex flex-col items-center justify-center text-center p-4">
-              <img
-                src={scheduleIcon}
-                alt={textContent.middleColumn.bottomSection.scheduleCard.iconAlt}
-                className="w-8 h-8 mb-2"
-                loading="lazy"
-              />
-              <h2 className="lato font-semibold text-sm leading-tight white-text-element text-center">
-                {textContent.middleColumn.bottomSection.scheduleCard.heading}
-              </h2>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col gap-4">
-          <div className="flex gap-4 justify-center">
-            <div className="primary-gradient white-text-element rounded-[20px] h-[240px] w-[160px] p-4">
-              <h2 className="lato font-semibold text-lg text-left white-text-element leading-tight mb-4">
-                {textContent.leftColumn.card1.heading}
-              </h2>
-              <img
-                src={wifiSmartBowlImg}
-                alt={textContent.leftColumn.card1.imageAlt}
-                className="rounded-[15px] w-full"
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col gap-4">
-              <div className="bg-[#d1681d4b] rounded-[15px] overflow-hidden w-[152.83px] h-[128.33px]">
-                <img
-                  src={portimage}
-                  alt={textContent.leftColumn.card2.imageAlt}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>  
-              <div className="bg-[#73a0b229] rounded-[15px] overflow-hidden w-[152px] h-[95px]">
-                <img
-                  src={bowlBaseImg}
-                  alt={textContent.leftColumn.card3.imageAlt}
-                  className="w-full h-full object-contain"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="flex gap-4 justify-center">
-            <div className="flex flex-col gap-4">
-              <div className="brown-linear-radial-gradient white-text-element rounded-[15px] p-4 flex flex-col justify-between w-[126.18px] h-[147.34px]">
-                <img
-                  src={petSafeIcon}
-                  alt={textContent.rightColumn.middleCard.iconAlt}
-                  className="w-8 h-8 mb-4"
-                />
-                <h2 className="lato font-semibold text-sm leading-tight white-text-element">
-                  {textContent.rightColumn.middleCard.heading}
-                </h2>
-              </div>
-              <div className="primary-gradient white-text-element rounded-[15px] p-4 flex items-center gap-3 w-[126.18px] h-[70.07px]">
-                <img
-                  src={weightSensorIcon}
-                  alt={textContent.rightColumn.bottomCard.iconAlt}
-                  className="w-6 h-6"
-                  loading="lazy"
-                />
-                <p className="lato font-medium text-sm white-text-element">
-                  {textContent.rightColumn.bottomCard.paragraph}
-                </p>
-              </div>
-            </div>
-            <div className="w-[181.36px] h-[229.68px] primary-gradient white-text-element rounded-[20px] flex flex-col items-center justify-center text-center p-4 relative">
-              <img
-                src={sideNotificationImg}
-                alt={textContent.rightColumn.topCard.leftNotificationAlt}
-                className="absolute left-2 top-1/2 transform -translate-y-1/2 w-4 h-8"
-                loading="lazy"
-              />
-              <img
-                src={sideNotificationImg}
-                alt={textContent.rightColumn.topCard.rightNotificationAlt}
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-8"
-                loading="lazy"
-              />
-              <img
-                src={alertsIcon}
-                alt={textContent.rightColumn.topCard.centerImageAlt}
-                className="mx-auto w-10 h-10 mb-4"
-                loading="lazy"
-              />
-              <p className="lato font-bold text-sm leading-tight white-text-element">
-                {textContent.rightColumn.topCard.paragraph}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="absolute top-[24%] left-[50%] transform -translate-x-1/2 -translate-y-1/2">
-          <div className="relative">
-            <img
-              src={bowlShadowImg}
-              alt={textContent.middleColumn.centerImage.shadowAlt}
-              className="w-[200px] h-[200px] object-contain"
-              loading="lazy"
-            />
-            <img
-              src={bowl450gImg}
-              alt={textContent.middleColumn.centerImage.bowlAlt}
-              className="absolute top-0 left-0 w-[200px] h-[200px] object-contain"
-              loading="lazy"
-            />
           </div>
         </div>
       </div>

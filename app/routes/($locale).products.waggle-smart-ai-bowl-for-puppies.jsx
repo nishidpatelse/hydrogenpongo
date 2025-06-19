@@ -92,6 +92,7 @@ async function fetchProductByHandle(
 
 export default function CustomPage() {
   const ProductData = useLoaderData();
+  const bundleProduct = ProductData?.product?.data?.product?.bundleProduct?.references?.edges;
     // console.log(ProductData);
     
   
@@ -99,7 +100,7 @@ export default function CustomPage() {
     <div>
       <PotionControl ProductData={ProductData} />
       <SmartPetBowlShowcase ProductData={ProductData} />
-      <FrequentlyBoughtTogether />
+      <FrequentlyBoughtTogether bundleProduct={bundleProduct} />
       <WaggleSteps />
       <TestimonialsSection />
       <FAQsection />

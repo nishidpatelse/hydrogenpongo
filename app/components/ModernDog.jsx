@@ -27,27 +27,19 @@ const ModernDog = () => {
       <h2 className="md:mb-[37px] mb-[16px] inter gray-medium text-center font-normal text-[14px] md:text-[16px] leading-[164%] tracking-[0] uppercase">
         {contentData.heading}
       </h2>
-      <div className="flex flex-wrap gap-[22px] md:hidden justify-center">
+      <div className="flex flex-wrap justify-center gap-[22px] md:gap-[36px]">
         {partnersData.map(({ id, logo, alt }) => (
-          <div key={id} className="min-w-0 basis-[calc(33.333%-15px)] flex justify-center">
+          <div
+            key={id}
+            className="min-w-0 basis-[calc(33.333%-15px)] md:basis-auto flex justify-center"
+          >
             <img
               src={logo}
               alt={alt}
-              className="h-auto w-auto mx-auto object-contain"
+              className="h-auto w-auto object-contain mx-auto"
               loading="lazy"
             />
           </div>
-        ))}
-      </div>
-      <div className="hidden md:flex md:flex-wrap md:justify-center md:gap-[36px]">
-        {partnersData.map(({ id, logo, alt }) => (
-          <img
-            key={id}
-            src={logo}
-            alt={alt}
-            className="h-auto w-auto object-contain"
-            loading="lazy"
-          />
         ))}
       </div>
     </div>

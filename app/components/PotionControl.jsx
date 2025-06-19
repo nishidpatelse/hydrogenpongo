@@ -172,209 +172,31 @@ export default function PotionControl(ProductData) {
   };
 
   return (
-    <div className="mx-auto px-4 py-4 md:px-[112px] md:py-[56px]">
-      {/* <div className="block md:hidden mb-4">
-        <header className="flex items-center justify-between bg-white mx-auto px-4 py-3 h-13 rounded-3xl shadow-sm">
-          <div className="flex items-center">
-            <img src={waggleLogo} alt="Waggle Logo" loading="lazy" />
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="relative">
-              <img src={shoppingCartIcon} alt="Shopping Cart" loading="lazy" />
-            </div>
-            <img src={menuIcon} alt="Menu" loading="lazy" />
-          </div>
-        </header>
-      </div> */}
-
-      {/* <div className="block md:hidden">
-        <div className="mb-4">
-          <h1 className="lexend font-medium text-xl leading-[1.24] tracking-[-0.07px] text-dark-gray">
-            {productData.title}
-          </h1>
-          <div className="flex items-center gap-2 mt-3">
-            <div className="flex">
-              {[1, 2, 3, 4].map((star) => (
-                <Star
-                  key={star}
-                  className="w-3 h-3 fill-yellow-400 text-yellow-400"
-                />
-              ))}
-              <Star className="w-3 h-3 gray-400" />
-            </div>
-            <span className="dark-slate lato font-normal text-sm leading-4 tracking-normal align-middle">
-              {productData.rating.text}
+    <div className="px-[20px] md:px-[0] md:py-[55px] py-[48px] mx-auto max-w-[1160px] gap-[55px] w-full md:flex md:items-start md:justify-between">
+        <div className='flex flex-col items-start justify-start w-full md:w-[50%]'>
+            <span className="lexend font-medium text-[28px] leading-[1.24] tracking-[-0.07px] text-dark-gray md:hidden block">
+              {productData.title}
             </span>
-          </div>
-        </div>
-        <div className="mb-4">
-          <div className="relative">
-            <img
-              src={productImages[currentImage].src}
-              alt={productImages[currentImage].alt}
-              loading="lazy"
-              className="light-black-transparent border-[1px] rounded-[13px] w-full h-auto"
-            />
-            <button
-              onClick={prevImage}
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
-            >
-              <img src={chevronLeftIcon} alt="Previous" className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextImage}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
-            >
-              <img src={chevronRightIcon} alt="Next" className="w-6 h-6" />
-            </button>
-          </div>
-          <div className="flex gap-2 mt-3 overflow-x-auto">
-            {thumbnailImages.map((thumb, index) => {
-              const actualIndex = thumbnailStartIndex + index;
-              return (
-                <button
-                  key={actualIndex}
-                  onClick={() => setCurrentImage(actualIndex)}
-                  className={`w-16 h-16 rounded-[8px] border-[1px] border-solid flex-shrink-0 overflow-hidden transition-all ${
-                    currentImage === actualIndex ? 'color-dark' : 'border-soft'
-                  }`}
-                >
-                  <img
-                    src={thumb.src}
-                    alt={thumb.alt}
-                    className="w-full h-full object-cover"
+            <div className="flex items-center gap-4 mt-[14px] md:hidden block">
+              <div className="flex">
+                {[1, 2, 3, 4].map((star) => (
+                  <Star
+                    key={star}
+                    className="w-4 h-7 fill-yellow-400 text-yellow-400"
                   />
-                </button>
-              );
-            })}
-          </div>
-        </div>
-        <div className="mb-4">
-          <div
-            className={`inline-block brand-brown rounded-[4px] white-text-element pt-[4px] pr-[8px] pb-[4px] pl-[8px] lato font-semibold text-sm leading-4 tracking-normal mb-4`}
-          >
-            {productData.badge.text}
-          </div>
-          <div className="flex items-end mb-2">
-            <span className="lexend font-light text-xs leading-[1.24] tracking-normal dark-slate line-through">
-              {productData.pricing.originalPrice}
-            </span>
-            <span className="lexend font-medium text-xl leading-[20px] tracking-normal text-dark-gray ml-2">
-              {productData.pricing.currentPrice}
-            </span>
-            <span className="primary-red lexend font-light text-lg leading-[20px] tracking-normal ml-1">
-              {productData.pricing.discount}
-            </span>
-          </div>
-          <p className="bg-dark-translucent lato font-normal text-sm leading-4 tracking-normal mb-2">
-            {productData.pricing.description}
-          </p>
-          <p className="lato font-medium text-sm leading-5 tracking-normal bg-dark-translucent mb-4">
-            {productData.pricing.subscription.text}{' '}
-            <span className="lato font-bold text-sm leading-5 tracking-normal bg-dark-translucent">
-              {productData.pricing.subscription.price}
-            </span>{' '}
-            {productData.pricing.subscription.note}
-          </p>
-          <h3 className="lexend font-medium text-lg leading-5 tracking-[-0.07px] text-dark-gray mb-3">
-            {productData.sectionTitle}
-          </h3>
-          <div>
-            {productData.features.map((feature, index) => (
-              <div key={index} className="flex items-start gap-2 mb-2">
-                <div className="rounded-full flex items-center justify-center mt-1 flex-shrink-0">
-                  <img src={feature.icon} alt="Feature" className="w-4 h-4" />
-                </div>
-                <span className="text-dark-gray NotoSans font-normal text-sm leading-5 tracking-normal">
-                  {feature.text}
-                </span>
+                ))}
+                <Star className="w-4 h-7 gray-400" />
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="mb-4">
-          <div className="flex flex-wrap items-center gap-1">
-            <span className="primary-yellow dark-slate rounded-[4px] py-1 px-2 lato font-semibold text-sm leading-4 tracking-normal">
-              {productData.coupon.label}
-            </span>
-            <img src={promoBoxImage} alt="Promo Box" className="w-4 h-4" />
-            <span className="NotoSans font-normal text-sm leading-6 tracking-normal">
-              {productData.coupon.text}{' '}
-              <span className="NotoSans font-bold text-sm leading-6 tracking-normal">
-                {productData.coupon.code}
-              </span>{' '}
-              {productData.coupon.offer}
-            </span>
-            <button className="primary-blue font-normal text-sm leading-6 tracking-normal underline">
-              {productData.coupon.termsText}
-            </button>
-          </div>
-        </div>
-        <div className="mb-4">
-          <div className="flex border gray-medium rounded-[32px] w-fit">
-            <button
-              onClick={decreaseQuantity}
-              className="px-3 py-2 cursor-pointer text-lg"
-            >
-              −
-            </button>
-            <span className="px-3 py-2 black-dark font-bold text-sm leading-4 tracking-normal NotoSans">
-              {quantity}
-            </span>
-            <button
-              onClick={increaseQuantity}
-              className="px-3 py-2 black-dark cursor-pointer text-lg"
-            >
-              +
-            </button>
-          </div>
-        </div>
-        <div className="mb-6">
-          <button
-            onClick={increaseQuantity}
-            className="button2 cursor-pointer white-text-element w-full h-12 rounded-[32px] lato font-bold text-sm leading-4 tracking-normal"
-          >
-            {productData.buttons.addToCart}
-          </button>
-        </div>
-        <div className="w-full h-px bg-gray-300 mb-6"></div>
-        <div>
-          <div className="grid grid-cols-2 gap-6">
-            {productData.trustBadges.slice(0, 2).map((badge, index) => (
-              <div key={index} className="text-center">
-                <div className="flex items-center justify-center mx-auto">
-                  <img src={badge.icon} alt={badge.text} className="w-6 h-6" />
-                </div>
-                <p className="mt-2 lato text-dark-gray font-medium text-xs leading-[100%] tracking-normal">
-                  {badge.text}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="w-full h-px bg-gray-300 my-6"></div>
-
-          <div className="grid grid-cols-2 gap-6">
-            {productData.trustBadges.slice(2, 4).map((badge, index) => (
-              <div key={index + 2} className="text-center">
-                <div className="flex items-center justify-center mx-auto">
-                  <img src={badge.icon} alt={badge.text} className="w-6 h-6" />
-                </div>
-                <p className="mt-2 lato text-dark-gray font-medium text-xs leading-[100%] tracking-normal">
-                  {badge.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div> */}
-      <div className="md:flex flex-row gap-[64px]">
-        <div>
+              <span className="dark-slate lato font-normal text-base leading-6 tracking-normal align-middle">
+                {productData.rating.text}
+              </span>
+            </div>
           <div className="relative">
             <img
               src={productImages[currentImage].src}
               alt={productImages[currentImage].alt}
               loading="lazy"
-              className="light-black-transparent border-[1px] rounded-[13px]"
+              className="light-black-transparent border-[1px] rounded-[13px] w-full max-w-[556px]"
             />
             <button
               onClick={prevImage}
@@ -390,7 +212,7 @@ export default function PotionControl(ProductData) {
             </button>
           </div>
           <div className="w-full">
-            <div className="flex gap-[23px] mt-[14px]">
+            <div className="flex gap-[23px] mt-[14px] overflow-auto">
               {thumbnailImages.map((thumb, index) => {
                 const actualIndex = thumbnailStartIndex + index;
                 return (
@@ -416,10 +238,10 @@ export default function PotionControl(ProductData) {
         </div>
         <div className="">
           <div>
-            <h1 className="lexend font-medium text-[28px] leading-[1.24] tracking-[-0.07px] text-dark-gray">
+            <span className="lexend font-medium text-[28px] leading-[1.24] tracking-[-0.07px] text-dark-gray md:block hidden">
               {productData.title}
-            </h1>
-            <div className="flex items-center gap-4 mt-[14px]">
+            </span>
+            <div className="flex items-center gap-4 mt-[14px] md:block hidden">
               <div className="flex">
                 {[1, 2, 3, 4].map((star) => (
                   <Star
@@ -499,7 +321,7 @@ export default function PotionControl(ProductData) {
               >
                 −
               </button>
-              <span className="px-4 py-3  black-dark font-bold text-base leading-6 tracking-normal NotoSans">
+              <span className="px-4 py-3 black-dark font-bold text-base leading-6 tracking-normal NotoSans">
                 {quantity}
               </span>
               <button
@@ -524,15 +346,10 @@ export default function PotionControl(ProductData) {
                         ]
                       : []
                   }
-            >
+                  className="button2 button-hover2"
+            > 
         {productData.buttons.addToCart}
             </CustomAddToCartButton>
-            {/* <button
-              onClick={increaseQuantity}
-              className="button2 cursor-pointer white-text-element w-[376.97px] h-[56px] rounded-[64px] lato font-bold text-base leading-5 tracking-normal"
-            >
-              {productData.buttons.addToCart}
-            </button> */}
           </div>
           <div className="flex gap-[27px] pt-[40px]">
             {productData.trustBadges.map((badge, index) => (
@@ -552,7 +369,6 @@ export default function PotionControl(ProductData) {
             ))}
           </div>
         </div>
-      </div>
     </div>
   );
 }

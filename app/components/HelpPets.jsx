@@ -41,7 +41,7 @@ const HelpPets = () => {
       <img
         src={isMobile ? images.mobile : images.desktop}
         alt="Waggle Pet Products Background"
-        className="max-w-none mx-auto rounded-[26.34px] md:w-full"
+        className=" mx-auto !rounded-[26.34px] w-full max-w-[1216px]"
         loading="lazy"
       />
       <div className="absolute inset-0 flex flex-col items-center pt-[40px]">

@@ -44,7 +44,7 @@ export default function WaggleSteps() {
   useEffect(() => {
     if (!autoRotate) return;
     const interval = setInterval(() => {
-      setActiveStep((prevStep) => (prevStep + 1) % 3);
+      setActiveStep((prevStep) => (prevStep + 1) % content.steps.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [autoRotate]);
@@ -70,99 +70,104 @@ export default function WaggleSteps() {
   );
 
   return (
-    <div className="bg-blue-50 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center pt-8 lg:pt-18 mb-7 lg:mb-[28px] lg:mr-16">
-          <h1 className="font-medium text-2xl lg:text-[35.54px] leading-tight lg:leading-none text-gray-800 mb-2">
-            {content.header.title1}
-          </h1>
-          <h2 className="font-medium text-2xl lg:text-[35.54px] leading-tight lg:leading-none text-gray-800">
-            {content.header.title2}
+    <div className="max-w-[1440px] w-full mx-auto bg-[#D6EAFF] md:bg-blue-50">
+      <div className="lg:px-4 px-[20px]">
+        <div className="text-center pt-[48px] lg:pt-18 mb-[14px] lg:mb-[28px]">
+          <span className="lexend font-medium md:text-[36px] leading-[100%] text-[20px] tracking-[-0.36px] text-gray-800 ">
+            {content.header.title1} 
+          </span>
+          <h2 className="lexend font-medium md:text-[36px] text-[20px] tracking-[-0.36px] text-gray-800">
+            {content.header.title2} 
           </h2>
-        </div>
-        <div className="lg:hidden space-y-4 pb-16">
+        </div>  
+
+        <div className="space-y-5 lg:space-y-0 lg:pb-[64px] pb-[48px]">
           {content.steps.map((step, index) => (
-            <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm">
-              <button
+            <div key={index} className="flex flex-col lg:flex-row">
+              <div
+                className="lg:hidden w-full text-left bg-white rounded-xl p-[20px]"
                 onClick={() => toggleStep(index)}
-                className="w-full p-6 text-left flex items-center justify-between focus:outline-none"
               >
-                <span className="text-gray-600 text-lg font-normal">
-                  {step.title}
-                </span>
-                <ChevronDown
-                  className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
-                    expandedStep === index ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              {expandedStep === index && (
-                <div className="px-6 pb-6">
-                  <div className="bg-gray-100 rounded-lg p-4 mb-4">
-                    <div className="flex items-center justify-center">
+                <div className="flex items-center justify-between mb-[16px]">
+                  <span className="custom-dark lexend font-normal text-[20px] leading-[100%] tracking-[0]">
+                    {step.title}
+                  </span>
+                  <ChevronDown
+                    className={`text-gray-400 transition-transform duration-200 ${expandedStep === index ? 'rotate-180' : ''}`}
+                  />
+                </div>
+                {expandedStep === index && (
+                  <div className="flex justify-center items-center">
+                    <img
+                      src={step.image}
+                      alt={step.fullTitle || step.title}
+                      className="rounded-[12px]"
+                    />
+                  </div>
+                )}
+              </div>
+              {typeof window !== 'undefined' && window.innerWidth >= 1024 && activeStep === index && (
+                <div className="flex flex-col lg:flex-row gap-5 w-full transition-all duration-300">
+                  {index === 1 && (
+                    <div className="hidden lg:flex justify-center lg:flex-shrink-0">
+                      <Box box={content.steps[1].box1} stepIndex={0} />
+                    </div>
+                  )}
+                  {index === 2 && (
+                    <>
+                      <div className="hidden lg:flex justify-center lg:flex-shrink-0">
+                        <Box box={content.steps[2].box1} stepIndex={0} />
+                      </div>
+                      <div className="hidden lg:flex justify-center lg:flex-shrink-0">
+                        <Box box={content.steps[2].box2} stepIndex={1} />
+                      </div>
+                    </>
+                  )}
+                  <div
+                    className="waggle-blue-bg w-full max-w-full lg:max-w-[876px] border border-transparent flex rounded-[20px] flex-col lg:flex-row gap-[27px]"
+                    onClick={() => {
+                      setActiveStep(index);
+                      setAutoRotate(false);
+                    }}
+                  >
+                    <div className="pt-5 pb-5 pl-5">
                       <img
                         src={step.image}
                         alt={step.fullTitle || step.title}
-                        className="max-w-full h-auto rounded-lg"
+                        className="max-w-none rounded-[23px]"
                       />
                     </div>
+                    <div className="hidden lg:flex flex-col pt-[60px] lg:pt-[232px] pr-6">
+                      <span className="lato font-normal text-5xl leading-none tracking-normal dark-overlay mb-[40px]">
+                        {step.number}
+                      </span>
+                      <h3 className="lexend font-normal text-[24px] lg:text-[39px] leading-none tracking-normal text-dark-gray mb-[58px]">
+                        {step.fullTitle || step.title}
+                      </h3>
+                      <div className="w-50 h-1 blue-400 rounded"></div>
+                    </div>
                   </div>
+                  {index === 0 && (
+                    <>
+                      <div className="hidden lg:flex justify-center lg:flex-shrink-0">
+                        <Box box={content.steps[0].box2} stepIndex={1} />
+                      </div>
+                      <div className="hidden lg:flex justify-center lg:flex-shrink-0">
+                        <Box box={content.steps[0].box3} stepIndex={2} />
+                      </div>
+                    </>
+                  )}
+                  {index === 1 && (
+                    <div className="hidden lg:flex justify-center lg:flex-shrink-0">
+                      <Box box={content.steps[1].box3} stepIndex={2} />
+                    </div>
+                  )}
                 </div>
               )}
             </div>
           ))}
         </div>
-        <div className="hidden lg:block">
-          {activeStep === 0 && (
-            <div className="flex pb-[64px] flex-col lg:flex-row gap-5">
-              <div className="waggle-blue-bg w-full max-w-[876px] border border-transparent flex rounded-[20px] flex-col lg:flex-row gap-[27px]">
-                <div className="rounded-[23px] pt-5 pb-5 pl-5">
-                  <img src={content.steps[0].image} alt="Smart AI Bowl Setup" className="max-w-none" />
-                </div>
-                <div className="flex flex-col pt-[232px] pr-6">
-                  <span className="lato font-normal text-5xl leading-none tracking-normal dark-overlay mb-[40px]">{content.steps[0].number}</span>
-                  <h3 className="lexend font-normal text-[39px] leading-none tracking-normal text-dark-gray mb-[58px]">{content.steps[0].fullTitle}</h3>
-                  <div className="w-50 h-1 blue-400 rounded"></div>
-                </div>
-              </div>
-              <Box box={content.steps[0].box2} stepIndex={1} />
-              <Box box={content.steps[0].box3} stepIndex={2} />
-            </div>
-          )}
-          {activeStep === 1 && (
-            <div className="flex pb-[64px] flex-col lg:flex-row gap-5">
-              <Box box={content.steps[1].box1} stepIndex={0} />
-              <div className="waggle-blue-bg w-full max-w-[876px] border border-transparent flex rounded-[20px] flex-col lg:flex-row gap-[27px]">
-                <div className="rounded-[23px] pt-5 pb-5 pl-5">
-                  <img src={content.steps[1].image} alt="Waggle App Connection" className="max-w-none" />
-                </div>
-                <div className="flex flex-col pt-[232px] pr-6">
-                  <span className="lato font-normal text-5xl leading-none tracking-normal dark-overlay mb-[40px]">{content.steps[1].number}</span>
-                  <h3 className="lexend font-normal text-[39px] leading-none tracking-normal text-dark-gray mb-[58px]">{content.steps[1].title}</h3>
-                  <div className="w-50 h-1 blue-400 rounded"></div>
-                </div>
-              </div>
-              <Box box={content.steps[1].box3} stepIndex={2} />
-            </div>
-          )}
-          {activeStep === 2 && (
-            <div className="flex pb-[64px] flex-col lg:flex-row gap-5">
-              <Box box={content.steps[2].box1} stepIndex={0} />
-              <Box box={content.steps[2].box2} stepIndex={1} />
-              <div className="waggle-blue-bg w-full max-w-[876px] border border-transparent flex rounded-[20px] flex-col lg:flex-row gap-[27px]">
-                <div className="rounded-[23px] pt-5 pb-5 pl-5">
-                  <img src={content.steps[2].image} alt="Pet Nutrition Monitoring" className="max-w-none" />
-                </div>
-                <div className="flex flex-col pt-[232px] pr-6">
-                  <span className="lato font-normal text-5xl leading-none tracking-normal dark-overlay mb-[40px]">{content.steps[2].number}</span>
-                  <h3 className="lexend font-normal text-[39px] leading-none tracking-normal text-dark-gray mb-[58px]">{content.steps[2].fullTitle}</h3>
-                  <div className="w-50 h-1 blue-400 rounded"></div>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
+      </div>  
     </div>
   );
 }

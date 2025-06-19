@@ -7,6 +7,7 @@ import {CartForm} from '@shopify/hydrogen';
  *   disabled?: boolean;
  *   lines: Array<OptimisticCartLineInput>;
  *   onClick?: () => void;
+ *   className?: string;
  * }}
  */
 export function CustomAddToCartButton({
@@ -15,6 +16,7 @@ export function CustomAddToCartButton({
   disabled,
   lines,
   onClick,
+  className = ''  
 }) {
   return (
     <CartForm route="/cart" inputs={{lines}} action={CartForm.ACTIONS.LinesAdd}>
@@ -29,7 +31,7 @@ export function CustomAddToCartButton({
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
-            className="button2 cursor-pointer white-text-element w-[376.97px] h-[56px] rounded-[64px] lato font-bold text-base leading-5 tracking-normal"
+            className={`button2 cursor-pointer white-text-element w-[376.97px] h-[56px] rounded-[64px] lato font-bold text-base leading-5 tracking-normal ${className}`}
           >
             {children}
           </button>
